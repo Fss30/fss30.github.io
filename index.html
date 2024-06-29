@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-<meta-charset="UTF-8">
-<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳动的数字</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .number {
+            font-size: 3em;
+            color: #333;
+        }
+    </style>
 </head>
-<body> 
-大家好！ 
-一个测试！
+<body>
+    <div class="number" id="randomNumber">0</div>
+
+    <script>
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function updateNumber() {
+            const numberElement = document.getElementById('randomNumber');
+            numberElement.textContent = getRandomNumber(0, 100); // 设定范围为0到100
+        }
+
+        setInterval(updateNumber, 1000); // 每秒更新一次
+    </script>
 </body>
 </html>
